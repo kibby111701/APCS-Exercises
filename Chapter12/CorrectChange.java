@@ -16,7 +16,8 @@ public class  CorrectChange{
         nickels = changeDue/5;
         pennies = changeDue % 5;
 
-        System.out.println("Your change is: " + dollars + " dollars, " + quarters + " quarters, " + dimes + " dimes, " + nickels + " nickels and " + pennies + " pennies.");
+        System.out.println("Your change is: " + dollars + " dollars, " + 
+            quarters + " quarters, " + dimes + " dimes, " + nickels + " nickels and " + pennies + " pennies.");
 
         
     }
