@@ -11,6 +11,9 @@ public class TimeUntil{
         int hourDiff, minuteDiff, secondDiff;
         String futureTime;
 
+        if (currentHour > 12){
+            currentHour-=12;
+        }
         System.out.println(currentHour);
         System.out.println(currentMinute);
         System.out.println(currentSecond);
@@ -51,26 +54,53 @@ public class TimeUntil{
 
         }
 
-        System.out.println("The difference is:" + hourDiff + ":" + minuteDiff + ":" + secondDiff);
+        System.out.println("The difference is:");
 
-        // if (hourDiff = 0){
-        //     if (minuteDiff = 0){
-        //         if (secondDiff = 0){
-        //             System.out.println( "These are the same time");
-        //         }
-        //         else{
-        //             System.out.println(secondDiff + " seconds");
-        //         }
-        //     else if (secondDiff = 0){
-        //         System.out.println(minuteDiff + " minutes");
-        //     }
-        //     else {
-        //         System.out.println(minuteDiff + " minutes and " secondDiff + " seconds");
-        //     }
+        if (hourDiff == 0)
+        {
+            if (minuteDiff == 0)
+            {
+                if (secondDiff == 0)
+                {
+                    System.out.println("These are the same time");
+                }
+                else
+                {
+                    System.out.println(secondDiff + " seconds");
+                }
+            } 
+            else if (secondDiff == 0)
+            {
+                System.out.println(minuteDiff + " minutes");
+            } 
+            else 
+            {
+                System.out.println(minuteDiff + " minutes and " + secondDiff + " seconds");
+            }
 
 
-        //     }
-        // }
+            
+
+        }
+        else if (minuteDiff == 0)
+        {
+            if (secondDiff == 0)
+            {
+                System.out.println(hourDiff + " hours");
+            }
+            else
+            {
+                System.out.println(hourDiff + " hours and " + secondDiff + " seconds");
+            }
+        }
+        else if (secondDiff == 0)
+        {
+            System.out.println(hourDiff + " hours and " + minuteDiff + " minutes");
+        }
+        else 
+        {
+            System.out.println(hourDiff + " hours, " + minuteDiff + " minutes and " + secondDiff + " seconds");
+        }
 
 
     }
