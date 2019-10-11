@@ -589,18 +589,597 @@ public class Farkle{
             System.out.println("Got out");
             scoreOne += workingSumOne;
             System.out.println("Player 1 score: " + scoreOne);
+            System.out.println("Player 2 score: " + scoreTwo);
+            farkle = false;
+            dieCount = 6;
+
+
+            while (!continueTwo.equals("n") && farkle == false && dieCount > 0){
+                System.out.println("Player Two, press 'y' to roll your remaining dice. Press 'n' to back out.");
+                continueTwo = scan.nextLine();
+
+                if (continueTwo.equals("y") && farkle == false && dieCount>0){ 
+                    while (dieCount == 6){
+                        dieOne = rand.nextInt(6) + 1;
+                        dieTwo = rand.nextInt(6) + 1;
+                        dieThree = rand.nextInt(6) + 1;
+                        dieFour = rand.nextInt(6) + 1;
+                        dieFive = rand.nextInt(6) + 1;
+                        dieSix = rand.nextInt(6) + 1;
+
+                        System.out.println("Die 1:" + dieOne);
+                        System.out.println("Die 2:" + dieTwo);
+                        System.out.println("Die 3:" + dieThree);
+                        System.out.println("Die 4:" + dieFour);
+                        System.out.println("Die 5:" + dieFive);
+                        System.out.println("Die 6:" + dieSix);
+
+                        if (threeOfKind(dieCount, dieOne, dieTwo, dieThree, dieFour, dieFive, dieSix) != -1){
+                            System.out.println("You have a three of a kind!");
+                            workingSumTwo += (threeOfKind(dieCount, dieOne, dieTwo, dieThree, dieFour, dieFive, dieSix));
+                            removeTimes += 3;
+                        }
+
+                        if (dieOne == 1 || dieOne == 5){
+                            System.out.println("Keep Die 1? y/n");
+                            keepOne = scan.nextLine();
+                            if (keepOne.equals("y") && dieOne == 1){
+                                workingSumTwo += 100;
+                                removeTimes += 1;
+                            }
+                            else if (keepOne.equals("y") && dieOne == 5){
+                                workingSumTwo += 50;
+                                removeTimes += 1;
+                            }
+                            else{
+                                workingSumTwo += 0;
+                            }
+                        }
+
+
+                        if (dieTwo == 1 || dieTwo == 5){
+                            System.out.println("Keep Die 2? y/n");
+                            keepOne = scan.nextLine();
+                            if (keepOne.equals("y") && dieTwo == 1){
+                                workingSumTwo += 100;
+                                removeTimes += 1;
+                            }
+                            else if (keepOne.equals("y") && dieTwo == 5){
+                                workingSumTwo += 50;
+                                removeTimes += 1;
+                            }
+                            else{
+                                workingSumTwo += 0;
+                            }
+                        }
+
+                        if (dieThree == 1 || dieThree == 5){
+                            System.out.println("Keep Die 3? y/n");
+                            keepOne = scan.nextLine();
+                            if (keepOne.equals("y") && dieThree == 1){
+                                workingSumTwo += 100;
+                                removeTimes += 1;
+                            }
+                            else if (keepOne.equals("y") && dieThree == 5){
+                                workingSumTwo += 50;
+                                removeTimes += 1;
+                            }
+                            else{
+                                workingSumTwo += 0;
+                            }
+                        }
+
+                        
+
+                        if (dieFour == 1 || dieFour == 5){
+                            System.out.println("Keep Die 4? y/n");
+                            keepOne = scan.nextLine();
+                            if (keepOne.equals("y") && dieFour == 1){
+                                workingSumTwo += 100;
+                                removeTimes += 1;
+                            }
+                            else if (keepOne.equals("y") && dieFour == 5){
+                                workingSumTwo += 50;
+                                removeTimes += 1;
+                            }
+                            else{
+                                workingSumTwo += 0;
+                            }
+                        }
+
+                        
+
+                        if (dieFive == 1 || dieFive == 5){
+                            System.out.println("Keep Die 5? y/n");
+                            keepOne = scan.nextLine();
+                            if (keepOne.equals("y") && dieFive == 1){
+                                workingSumTwo += 100;
+                                removeTimes += 1;
+                            }
+                            else if (keepOne.equals("y") && dieFive == 5){
+                                workingSumTwo += 50;
+                                removeTimes += 1;
+                            }
+                            else{
+                                workingSumTwo += 0;
+                            }
+                        }
+
+                        
+
+                        if (dieSix == 1 || dieSix == 5){
+                            System.out.println("Keep Die 6? y/n");
+                            keepOne = scan.nextLine();
+                            if (keepOne.equals("y") && dieSix == 1){
+                                workingSumTwo += 100;
+                                removeTimes += 1;
+                            }
+                            else if (keepOne.equals("y") && dieSix == 5){
+                                workingSumTwo += 50;
+                                removeTimes += 1;
+                            }
+                            else{
+                                workingSumTwo += 0;
+                            }
+                        }
+
+                        
+
+                        if ((dieOne != 1 && dieOne != 5) && (dieTwo != 1 && dieTwo != 5) && (dieThree != 1 && dieThree != 5) && (dieFour != 1 && dieFour != 5) && (dieFive != 1 && dieFive != 5) && (dieSix != 1 && dieSix != 5) && threeOfKind(dieCount, dieOne, dieTwo, dieThree, dieFour, dieFive, dieSix) == -1) {
+                            System.out.println("Farkle!");
+                            workingSumTwo = 0;
+                            farkle = true;
+                        }
+
+                        dieCount -= removeTimes;
+                    }
+                }
+
+                System.out.println("Current sum: " + workingSumTwo);
+                removeTimes = 0;
+
+                System.out.println("Keep rolling? y/n");
+                continueTwo = scan.nextLine();
+
+                if (continueTwo.equals("y") && farkle == false && dieCount>0){
+                    while (dieCount == 5){
+                        dieOne = rand.nextInt(6) + 1;
+                        dieTwo = rand.nextInt(6) + 1;
+                        dieThree = rand.nextInt(6) + 1;
+                        dieFour = rand.nextInt(6) + 1;
+                        dieFive = rand.nextInt(6) + 1;
+                        dieSix = 0;
+
+                        System.out.println("Die 1:" + dieOne);
+                        System.out.println("Die 2:" + dieTwo);
+                        System.out.println("Die 3:" + dieThree);
+                        System.out.println("Die 4:" + dieFour);
+                        System.out.println("Die 5:" + dieFive);
+
+                        if (threeOfKind(dieCount, dieOne, dieTwo, dieThree, dieFour, dieFive, dieSix) != -1){
+                            System.out.println("You have a three of a kind!");
+                            workingSumTwo += (threeOfKind(dieCount, dieOne, dieTwo, dieThree, dieFour, dieFive, dieSix));
+                            removeTimes += 3;
+                        }
+
+                        if (dieOne == 1 || dieOne == 5){
+                            System.out.println("Keep Die 1? y/n");
+                            keepOne = scan.nextLine();
+                            if (keepOne.equals("y") && dieOne == 1){
+                                workingSumTwo += 100;
+                                removeTimes += 1;
+                            }
+                            else if (keepOne.equals("y") && dieOne == 5){
+                                workingSumTwo += 50;
+                                removeTimes += 1;
+                            }
+                            else{
+                                workingSumTwo += 0;
+                            }
+                        }
+
+                        
+
+                        if (dieTwo == 1 || dieTwo == 5){
+                            System.out.println("Keep Die 2? y/n");
+                            keepOne = scan.nextLine();
+                            if (keepOne.equals("y") && dieTwo == 1){
+                                workingSumTwo += 100;
+                                removeTimes += 1;
+                            }
+                            else if (keepOne.equals("y") && dieTwo == 5){
+                                workingSumTwo += 50;
+                                removeTimes += 1;
+                            }
+                            else{
+                                workingSumTwo += 0;
+                            }
+                        }
+
+                        
+
+                        if (dieThree == 1 || dieThree == 5){
+                            System.out.println("Keep Die 3? y/n");
+                            keepOne = scan.nextLine();
+                            if (keepOne.equals("y") && dieThree == 1){
+                                workingSumTwo += 100;
+                                removeTimes += 1;
+                            }
+                            else if (keepOne.equals("y") && dieThree == 5){
+                                workingSumTwo += 50;
+                                removeTimes += 1;
+                            }
+                            else{
+                                workingSumTwo += 0;
+                            }
+                        }
+
+                        
+
+                        if (dieFour == 1 || dieFour == 5){
+                            System.out.println("Keep Die 4? y/n");
+                            keepOne = scan.nextLine();
+                            if (keepOne.equals("y") && dieFour == 1){
+                                workingSumTwo += 100;
+                                removeTimes += 1;
+                            }
+                            else if (keepOne.equals("y") && dieFour == 5){
+                                workingSumTwo += 50;
+                                removeTimes += 1;
+                            }
+                            else{
+                                workingSumTwo += 0;
+                            }
+                        }
+
+                        
+
+                        if (dieFive == 1 || dieFive == 5){
+                            System.out.println("Keep Die 5? y/n");
+                            keepOne = scan.nextLine();
+                            if (keepOne.equals("y") && dieFive == 1){
+                                workingSumTwo += 100;
+                                removeTimes += 1;
+                            }
+                            else if (keepOne.equals("y") && dieFive == 5){
+                                workingSumTwo += 50;
+                                removeTimes += 1;
+                            }
+                            else{
+                                workingSumTwo += 0;
+                            }
+                        }
+
+                        if ((dieOne != 1 && dieOne != 5) && (dieTwo != 1 && dieTwo != 5) && (dieThree != 1 && dieThree != 5) && (dieFour != 1 && dieFour != 5) && (dieFive != 1 && dieFive != 5) && threeOfKind(dieCount, dieOne, dieTwo, dieThree, dieFour, dieFive, dieSix) == -1) {
+                            System.out.println("Farkle!");
+                            workingSumTwo = 0;
+                            farkle = true;
+                        }
+
+                        dieCount -= removeTimes;
+                        
+                    }
+
+                }
+
+
+                System.out.println("Current sum: " + workingSumTwo);
+                removeTimes = 0;
+
+                System.out.println("Keep rolling? y/n");
+                continueTwo = scan.nextLine();
+                
+                if (continueTwo.equals("y") && farkle == false && dieCount > 0){
+                    while (dieCount == 4){
+                        dieOne = rand.nextInt(6) + 1;
+                        dieTwo = rand.nextInt(6) + 1;
+                        dieThree = rand.nextInt(6) + 1;
+                        dieFour = rand.nextInt(6) + 1;
+                        dieFive = 0;
+                        dieSix = 0;
+
+                        System.out.println("Die 1:" + dieOne);
+                        System.out.println("Die 2:" + dieTwo);
+                        System.out.println("Die 3:" + dieThree);
+                        System.out.println("Die 4:" + dieFour);
+
+                        if (threeOfKind(dieCount, dieOne, dieTwo, dieThree, dieFour, dieFive, dieSix) != -1){
+                            System.out.println("You have a three of a kind!");
+                            workingSumTwo += (threeOfKind(dieCount, dieOne, dieTwo, dieThree, dieFour, dieFive, dieSix));
+                            removeTimes += 3;
+                        }
+
+                        if (dieOne == 1 || dieOne == 5){
+                            System.out.println("Keep Die 1? y/n");
+                            keepOne = scan.nextLine();
+                            if (keepOne.equals("y") && dieOne == 1){
+                                workingSumTwo += 100;
+                                removeTimes += 1;
+                            }
+                            else if (keepOne.equals("y") && dieOne == 5){
+                                workingSumTwo += 50;
+                                removeTimes += 1;
+                            }
+                            else{
+                                workingSumTwo += 0;
+                            }
+                        }
+
+                        
+
+                        if (dieTwo == 1 || dieTwo == 5){
+                            System.out.println("Keep Die 2? y/n");
+                            keepOne = scan.nextLine();
+                            if (keepOne.equals("y") && dieTwo == 1){
+                                workingSumTwo += 100;
+                                removeTimes += 1;
+                            }
+                            else if (keepOne.equals("y") && dieTwo == 5){
+                                workingSumTwo += 50;
+                                removeTimes += 1;
+                            }
+                            else{
+                                workingSumTwo += 0;
+                            }
+                        }
+
+                        
+
+                        if (dieThree == 1 || dieThree == 5){
+                            System.out.println("Keep Die 3? y/n");
+                            keepOne = scan.nextLine();
+                            if (keepOne.equals("y") && dieThree == 1){
+                                workingSumTwo += 100;
+                                removeTimes += 1;
+                            }
+                            else if (keepOne.equals("y") && dieThree == 5){
+                                workingSumTwo += 50;
+                                removeTimes += 1;
+                            }
+                            else{
+                                workingSumTwo += 0;
+                            }
+                        }
+
+                        
+
+                        if (dieFour == 1 || dieFour == 5){
+                            System.out.println("Keep Die 4? y/n");
+                            keepOne = scan.nextLine();
+                            if (keepOne.equals("y") && dieFour == 1){
+                                workingSumTwo += 100;
+                                removeTimes += 1;
+                            }
+                            else if (keepOne.equals("y") && dieFour == 5){
+                                workingSumTwo += 50;
+                                removeTimes += 1;
+                            }
+                            else{
+                                workingSumTwo += 0;
+                            }
+                        }
+
+                        if ((dieOne != 1 && dieOne != 5) && (dieTwo != 1 && dieTwo != 5) && (dieThree != 1 && dieThree != 5) && (dieFour != 1 && dieFour != 5) && threeOfKind(dieCount, dieOne, dieTwo, dieThree, dieFour, dieFive, dieSix) == -1){
+                            System.out.println("Farkle!");
+                            workingSumTwo = 0;
+                            farkle = true;
+                        }
+
+                        dieCount -= removeTimes;
+                    }
+                }
+
+
+                System.out.println("Current sum: " + workingSumTwo);
+                removeTimes = 0;
+
+                System.out.println("Keep rolling? y/n");
+                continueTwo = scan.nextLine();
+                
+                if (continueTwo.equals("y") && farkle == false && dieCount > 0){
+                    while (dieCount == 3){
+                        dieOne = rand.nextInt(6) + 1;
+                        dieTwo = rand.nextInt(6) + 1;
+                        dieThree = rand.nextInt(6) + 1;
+                        dieFour = 0;
+                        dieFive = 0;
+                        dieSix = 0;
+
+                        System.out.println("Die 1:" + dieOne);
+                        System.out.println("Die 2:" + dieTwo);
+                        System.out.println("Die 3:" + dieThree);
+
+                        if (threeOfKind(dieCount, dieOne, dieTwo, dieThree, dieFour, dieFive, dieSix) != -1){
+                            System.out.println("You have a three of a kind!");
+                            workingSumTwo += (threeOfKind(dieCount, dieOne, dieTwo, dieThree, dieFour, dieFive, dieSix));
+                            removeTimes += 3;
+                        }
+
+                        if (dieOne == 1 || dieOne == 5){
+                            System.out.println("Keep Die 1? y/n");
+                            keepOne = scan.nextLine();
+                            if (keepOne.equals("y") && dieOne == 1){
+                                workingSumTwo += 100;
+                                removeTimes += 1;
+                            }
+                            else if (keepOne.equals("y") && dieOne == 5){
+                                workingSumTwo += 50;
+                                removeTimes += 1;
+                            }
+                            else{
+                                workingSumTwo += 0;
+                            }
+                        }
+
+                        if (dieTwo == 1 || dieTwo == 5){
+                            System.out.println("Keep Die 2? y/n");
+                            keepOne = scan.nextLine();
+                            if (keepOne.equals("y") && dieTwo == 1){
+                                workingSumTwo += 100;
+                                removeTimes += 1;
+                            }
+                            else if (keepOne.equals("y") && dieTwo == 5){
+                                workingSumTwo += 50;
+                                removeTimes += 1;
+                            }
+                            else{
+                                workingSumTwo += 0;
+                            }
+                        }
+
+                        if (dieThree == 1 || dieThree == 5){
+                            System.out.println("Keep Die 3? y/n");
+                            keepOne = scan.nextLine();
+                            if (keepOne.equals("y") && dieThree == 1){
+                                workingSumTwo += 100;
+                                removeTimes += 1;
+                            }
+                            else if (keepOne.equals("y") && dieThree == 5){
+                                workingSumTwo += 50;
+                                removeTimes += 1;
+                            }
+                            else{
+                                workingSumTwo += 0;
+                            }
+                        }
+
+                        if ((dieOne != 1 && dieOne != 5) && (dieTwo != 1 && dieTwo != 5) && (dieThree != 1 && dieThree != 5) && threeOfKind(dieCount, dieOne, dieTwo, dieThree, dieFour, dieFive, dieSix) == -1){
+                            System.out.println("Farkle!");
+                            workingSumTwo = 0;
+                            farkle = true;
+                        }
+
+                        dieCount -= removeTimes;
+
+                    }
+                
+                }
+
+
+                System.out.println("Current sum: " + workingSumTwo);
+                removeTimes = 0;
+
+                System.out.println("Keep rolling? y/n");
+                continueTwo = scan.nextLine();
+
+                if (continueTwo.equals("y")){
+                    while (dieCount == 2){
+                        dieOne = rand.nextInt(6) + 1;
+                        dieTwo = rand.nextInt(6) + 1;
+
+                        System.out.println("Die 1:" + dieOne);
+                        System.out.println("Die 2:" + dieTwo);
+
+                        if (dieOne == 1 || dieOne == 5){
+                            System.out.println("Keep Die 1? y/n");
+                            keepOne = scan.nextLine();
+                            if (keepOne.equals("y") && dieOne == 1){
+                                workingSumTwo += 100;
+                                removeTimes += 1;
+                            }
+                            else if (keepOne.equals("y") && dieOne == 5){
+                                workingSumTwo += 50;
+                                removeTimes += 1;
+                            }
+                            else{
+                                workingSumTwo += 0;
+                            }
+                        }
+
+                        if (dieTwo == 1 || dieTwo == 5){
+                            System.out.println("Keep Die 2? y/n");
+                            keepOne = scan.nextLine();
+                            if (keepOne.equals("y") && dieTwo == 1){
+                                workingSumTwo += 100;
+                                removeTimes += 1;
+                            }
+                            else if (keepOne.equals("y") && dieTwo == 5){
+                                workingSumTwo += 50;
+                                removeTimes += 1;
+                            }
+                            else{
+                                workingSumTwo += 0;
+                            }
+                        }
+
+
+                        if ((dieOne != 1 && dieOne != 5) && (dieTwo != 1 && dieTwo != 5)){
+                            System.out.println("Farkle!");
+                            workingSumTwo = 0;
+                            farkle = true;
+                        }
+
+                        dieCount -= removeTimes;
+
+                    }
+                }
+
+                System.out.println("Current sum: " + workingSumTwo);
+                removeTimes = 0;
+
+                System.out.println("Keep rolling? y/n");
+                continueTwo = scan.nextLine();
+
+                if (continueTwo.equals("y")){
+                    while (dieCount == 1){
+                        dieOne = rand.nextInt(6) + 1;
+
+                        System.out.println("Die 1:" + dieOne);
+
+                        if (dieOne == 1 || dieOne == 5){
+                            System.out.println("Keep Die 1? y/n");
+                            keepOne = scan.nextLine();
+                            if (keepOne.equals("y") && dieOne == 1){
+                                workingSumTwo += 100;
+                                removeTimes += 1;
+                            }
+                            else if (keepOne.equals("y") && dieOne == 5){
+                                workingSumTwo += 50;
+                                removeTimes += 1;
+                            }
+                            else{
+                                workingSumTwo += 0;
+                            }
+                        }
+
+                        else{
+                            System.out.println("Farkle!");
+                            workingSumTwo = 0;
+                            farkle = true;
+                        }
+
+                        dieCount -= removeTimes;
+
+                    }
+
+                    System.out.println("Current sum: " + workingSumTwo);
+                }
+
+            }
+            System.out.println("Got out");
+            scoreTwo += workingSumTwo;
+            System.out.println("Player 1 score: " + scoreOne);
+            System.out.println("Player 2 score: " + scoreTwo);
 
             farkle = false;
 
         }
 
+        if (scoreOne > scoreTwo){
+            System.out.println("Player 1 wins!");
+        }
+        else{
+            System.out.println("Player 2 wins!");
+        }
+
+        
 
     }
 
     public static int threeOfKind(int dieCount, int dieOne, int dieTwo, int dieThree, int dieFour, int dieFive, int dieSix){
         int numEqual = 0;
 
-        for (int i = 1; i < dieCount; i++){
+        for (int i = 1; i <= 6; i++){
             if (dieOne == i){
                 numEqual ++;
             }
