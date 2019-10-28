@@ -14,6 +14,10 @@ public class ConeTest{
         System.out.println("Enter the height");
         height = scan.nextDouble();
 
+        Cone cone = new Cone(radius, height);
+
+        System.out.println(cone);
+
         
     }
 

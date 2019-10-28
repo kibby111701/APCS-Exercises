@@ -23,7 +23,26 @@ public class Cone{
     public void setHeight(double height){
         this.height = height;
     }
+
+    public double findArea(){
+        return (Math.PI*radius)*(radius+Math.sqrt((height*height) + (radius*radius)));
+    }
+
+    public double findVolume(){
+        return Math.PI * radius * radius * (height/3);
+    }
+
+    public double slantHeight(){
+        return Math.sqrt((radius*radius) + (height*height));
+    }
+
+    public double angle(){
+        return Math.atan(radius/height);
+    }
     
+    public String toString(){
+        return "Area: " + findArea() + " Volume: " + findVolume() + " Slant height: " + slantHeight() + " Apex angle: " + angle();
+    }
 
 
 }
