@@ -5,9 +5,19 @@ public class BoxTester{
 
         Box oldBox = new Box(box);
 
+        Box biggerBox = oldBox.biggerBox(oldBox);
+
         System.out.println("Area: " + box.area() + " Volume: " + box.volume());
 
         System.out.println("Area: " + oldBox.area() + " Volume: " + oldBox.volume());
+
+        System.out.println("Area: " + biggerBox.area() + "Volume: " + biggerBox.volume());
+
+        System.out.println(box.nests(biggerBox));
+
+        System.out.println(biggerBox.nests(box));
+
+
 
     }
 

@@ -22,6 +22,7 @@ public class Box{
         this.height = oldbox.getHeight();
     }
 
+
     public double getLength(){
         return this.length;
     }
@@ -52,6 +53,14 @@ public class Box{
 
     public double area(){
         return 2*(faceArea() + sideArea() + topArea());
+    }
+
+    public Box biggerBox(Box oldBox){
+        return new Box(1.25*oldBox.getWidth(), 1.25*oldBox.getLength(), 1.25*oldBox.getHeight());
+    }
+
+    public boolean nests(Box outsideBox){
+        return (outsideBox.height > this.height) && (outsideBox.width > this.width) && (outsideBox.length > this.length);
     }
 
 
