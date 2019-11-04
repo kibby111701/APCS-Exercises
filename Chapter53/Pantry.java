@@ -19,6 +19,7 @@ class Pantry
   public String toString()
   {
     String str = "";
+    str += "The jams are: \n";
     str += "1: " +  jar1.toString()  + "\n";
     str += "2: " +  jar1.toString()  + "\n";
     str += "3: " +  jar1.toString()  + "\n";     
