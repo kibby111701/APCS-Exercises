@@ -15,14 +15,20 @@ class Pantry
     selected = null ;
   }
 
+  Pantry(Jam jar1, Jam jar2){
+    this.jar1 = jar1;
+    this.jar2 = jar2;
+    jar3 = null;
+  }
+
   // Methods
   public String toString()
   {
     String str = "";
     str += "The jams are: \n";
     str += "1: " +  jar1.toString()  + "\n";
-    str += "2: " +  jar1.toString()  + "\n";
-    str += "3: " +  jar1.toString()  + "\n";     
+    str += "2: " +  jar2.toString()  + "\n";
+    str += "3: " +  jar3.toString()  + "\n";     
     return str;
   }
 
