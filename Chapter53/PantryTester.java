@@ -14,7 +14,8 @@ public class PantryTester
     Jam rhub  = new Jam( "Rhubarb", "10/31/99", 3 );
 
     Pantry hubbard = new Pantry(goose, apple, rhub);
-    // Pantry bubby = new Pantry(goose, apple);
+    Pantry bubby = new Pantry(goose, apple);
+    Pantry frank = new Pantry(goose);
     
     System.out.println("Welcome to Mother Hubbard's Pantry!");
     System.out.println( hubbard );
@@ -22,19 +23,41 @@ public class PantryTester
     System.out.println("Welcome to Daddy Bubby's Pantry!");
     System.out.println(bubby);
 
-    while (selection != -1){
+    // System.out.println("Welcome to Filthy Frank's Pantry!");
+    // System.out.println(frank);
 
-      System.out.println("Enter your selection (1, 2, 3): ");
-      selection = scan.nextInt();
+    bubby.select(1);
+    bubby.spread(10);
 
-      System.out.println("Enter amount to spread: ");
-      amountChosen = scan.nextInt();
+    bubby.select(2);
+    bubby.spread(7);
 
-      hubbard.select(selection);
-      hubbard.spread(amountChosen);
+    bubby.select(3);
+    bubby.spread(2);
 
-      System.out.println(hubbard);
-    }
+    bubby.replace(rhub, 3);
+    bubby.select(3);
+    bubby.spread(2);
+
+    System.out.println(bubby);
+
+    bubby.mixedFruit();
+
+    System.out.println(bubby);
+
+    // while (selection != -1){
+
+    //   System.out.println("Enter your selection (1, 2, 3): ");
+    //   selection = scan.nextInt();
+
+    //   System.out.println("Enter amount to spread: ");
+    //   amountChosen = scan.nextInt();
+
+    //   hubbard.select(selection);
+    //   hubbard.spread(amountChosen);
+
+    //   System.out.println(hubbard);
+    // }
     
   }
 }
