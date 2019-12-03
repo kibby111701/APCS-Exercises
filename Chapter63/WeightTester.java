@@ -7,5 +7,16 @@ public class WeightTester{
 
         Weight june = new Weight(values);
         System.out.println(june);
+
+        int average = june.average();
+        System.out.println("Average: " + average);
+
+        int firstHalf = june.subAverage(0, 14);
+        int secondHalf = june.subAverage(15, 29);
+        int fourDay = june.subAverage(8, 11);
+
+        System.out.println("First half: " + firstHalf + " Second Half: " + secondHalf);
+
+        System.out.println(fourDay);
     }
 }
