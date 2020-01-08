@@ -5,6 +5,8 @@ public class IncomeTax{
         Scanner scan = new Scanner(System.in);
         double yearlyIncome, taxesPaid, percentagePaid;
 
+        System.out.println("This is the IRS. Pay your taxes, you filthy skank");
+
         System.out.println("Enter your yearly income");
         yearlyIncome = scan.nextDouble();
 
