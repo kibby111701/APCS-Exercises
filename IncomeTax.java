@@ -30,5 +30,6 @@ public class IncomeTax{
 
         System.out.println("Total paid: $" + taxesPaid);
         System.out.println(percentagePaid + "% of " + yearlyIncome);
+        System.out.println("Thank you for your money, we gonna finance some wack ish");
     }
 }
